@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AzureMVCDeployementModelStoreContainer" CdmEntityContainer="AzureMVCDeployementEntities">
+    <EntitySetMapping Name="TruckDetails">
+      <EntityTypeMapping TypeName="AzureMVCDeployementModel.TruckDetail">
+        <MappingFragment StoreEntitySet="TruckDetail">
+          <ScalarProperty Name="TruckID" ColumnName="TruckID" />
+          <ScalarProperty Name="TruckDescription" ColumnName="TruckDescription" />
+          <ScalarProperty Name="TruckBrandID" ColumnName="TruckBrandID" />
+          <ScalarProperty Name="TruckColor" ColumnName="TruckColor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TruckRefBrands">
+      <EntityTypeMapping TypeName="AzureMVCDeployementModel.TruckRefBrand">
+        <MappingFragment StoreEntitySet="TruckRefBrands">
+          <ScalarProperty Name="TruckRefBrandID" ColumnName="TruckRefBrandID" />
+          <ScalarProperty Name="TruckRefBrandName" ColumnName="TruckRefBrandName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

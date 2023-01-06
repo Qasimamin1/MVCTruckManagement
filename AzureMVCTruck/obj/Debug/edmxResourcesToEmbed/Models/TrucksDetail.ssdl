@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AzureMVCDeployementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TruckDetail">
+    <Key>
+      <PropertyRef Name="TruckID" />
+    </Key>
+    <Property Name="TruckID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TruckDescription" Type="varchar" MaxLength="50" />
+    <Property Name="TruckBrandID" Type="int" />
+    <Property Name="TruckColor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TruckRefBrands">
+    <Key>
+      <PropertyRef Name="TruckRefBrandID" />
+    </Key>
+    <Property Name="TruckRefBrandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TruckRefBrandName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__TruckDeta__Truck__276EDEB3">
+    <End Role="TruckRefBrands" Type="Self.TruckRefBrands" Multiplicity="0..1" />
+    <End Role="TruckDetail" Type="Self.TruckDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TruckRefBrands">
+        <PropertyRef Name="TruckRefBrandID" />
+      </Principal>
+      <Dependent Role="TruckDetail">
+        <PropertyRef Name="TruckBrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AzureMVCDeployementModelStoreContainer">
+    <EntitySet Name="TruckDetail" EntityType="Self.TruckDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TruckRefBrands" EntityType="Self.TruckRefBrands" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TruckDeta__Truck__276EDEB3" Association="Self.FK__TruckDeta__Truck__276EDEB3">
+      <End Role="TruckRefBrands" EntitySet="TruckRefBrands" />
+      <End Role="TruckDetail" EntitySet="TruckDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

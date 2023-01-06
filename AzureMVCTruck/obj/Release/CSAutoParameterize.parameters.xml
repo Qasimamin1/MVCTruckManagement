@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-AzureMVCTruck-20220812054250.mdf;Initial Catalog=aspnet-AzureMVCTruck-20220812054250;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\AHMAD\ COMPUTERS\\source\\repos\\AzureMVCTruck\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="AzureMVCDeployementEntities-Web.config Connection String" description="AzureMVCDeployementEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.TrucksDetail.csdl|res://*/Models.TrucksDetail.ssdl|res://*/Models.TrucksDetail.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(localdb)\ProjectModels;initial catalog=AzureMVCDeployement;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\AHMAD\ COMPUTERS\\source\\repos\\AzureMVCTruck\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AzureMVCDeployementEntities']/@connectionString" />
+  </parameter>
+</parameters>

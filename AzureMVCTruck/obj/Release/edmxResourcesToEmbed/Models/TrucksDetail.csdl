@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AzureMVCDeployementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TruckDetail">
+    <Key>
+      <PropertyRef Name="TruckID" />
+    </Key>
+    <Property Name="TruckID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TruckDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TruckBrandID" Type="Int32" />
+    <Property Name="TruckColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TruckRefBrand" Relationship="Self.FK__TruckDeta__Truck__276EDEB3" FromRole="TruckDetail" ToRole="TruckRefBrands" />
+  </EntityType>
+  <EntityType Name="TruckRefBrand">
+    <Key>
+      <PropertyRef Name="TruckRefBrandID" />
+    </Key>
+    <Property Name="TruckRefBrandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TruckRefBrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TruckDetails" Relationship="Self.FK__TruckDeta__Truck__276EDEB3" FromRole="TruckRefBrands" ToRole="TruckDetail" />
+  </EntityType>
+  <Association Name="FK__TruckDeta__Truck__276EDEB3">
+    <End Role="TruckRefBrands" Type="Self.TruckRefBrand" Multiplicity="0..1" />
+    <End Role="TruckDetail" Type="Self.TruckDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TruckRefBrands">
+        <PropertyRef Name="TruckRefBrandID" />
+      </Principal>
+      <Dependent Role="TruckDetail">
+        <PropertyRef Name="TruckBrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AzureMVCDeployementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TruckDetails" EntityType="Self.TruckDetail" />
+    <EntitySet Name="TruckRefBrands" EntityType="Self.TruckRefBrand" />
+    <AssociationSet Name="FK__TruckDeta__Truck__276EDEB3" Association="Self.FK__TruckDeta__Truck__276EDEB3">
+      <End Role="TruckRefBrands" EntitySet="TruckRefBrands" />
+      <End Role="TruckDetail" EntitySet="TruckDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
